@@ -50,7 +50,7 @@ class DBHandler:
         Fetches all subscriptions from the database and returns them as a list of dictionaries.
         Each dictionary contains 'subscription_id' and 'subscription'.
         """
-        query = "SELECT id as subscription_id, subscription FROM subscriptions ORDER BY id;"
+        query = "SELECT subscription_id, subscription FROM subscriptions;"
         self.cursor.execute(query)
         rows = self.cursor.fetchall()
         return [dict(row) for row in rows]
@@ -129,10 +129,6 @@ if __name__=="__main__":
     number_of_publications = 4200
 
     with DBHandler("cardifnlp.db") as db:
-        pubs = db.get_random_publications(number_of_publications)
-        save_to_json(
-            data=pubs,
-            output_path=f"./cardiffnlp_publications_{number_of_publications}.json"
-        )
-        for p in pubs:
-            print(json.dumps(p, indent=4))
+        subscriptions = db.get_subscriptions()
+        for sub in subscriptions:
+            print(sub)
