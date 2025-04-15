@@ -19,7 +19,7 @@ def init_db(conn):
             publication TEXT
         );
     ''')
-    
+
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS labels (
             label_id INTEGER PRIMARY KEY,
@@ -35,7 +35,7 @@ def init_db(conn):
             FOREIGN KEY(label_id) REFERENCES labels(id)
         );
     ''')
-
+    
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS publication_matches (
             publication_id INTEGER,
