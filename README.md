@@ -19,4 +19,15 @@ The CardiffNlp dataset of topic-labeled social media posts has  been repurposed 
   // more publications
 ]
 ```
+Subscripions are saved to json **subscriptions.json** with method get_subscriptions(). Format of saved subscriptions:
+```
+[
+  {
+    "subscription_id": <id>,
+    "subscriptions": <subscription>
+  },
+  // other subscriptions
+]
+```
+
 - See file **schema.sql** to understand the schema of cardiffnlp.db
